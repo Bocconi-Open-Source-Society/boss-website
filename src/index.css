@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced Catppuccin Mocha Design System */
+@layer base {
+  :root {
+    /* Using Catppuccin Mocha colors in HSL */
+    --background: 240 21% 15%;
+    /* base #1e1e2e */
+    --foreground: 226 64% 88%;
+    /* text #cdd6f4 */
+
+    --card: 237 16% 23%;
+    /* surface0 #313244 */
+    --card-foreground: 226 64% 88%;
+
+    --popover: 237 16% 23%;
+    --popover-foreground: 226 64% 88%;
+
+    --primary: 238 35% 77%;
+    /* lavender #b4befe */
+    --primary-foreground: 240 21% 15%;
+
+    --secondary: 199 76% 69%;
+    /* sapphire #74c7ec */
+    --secondary-foreground: 240 21% 15%;
+
+    --muted: 237 16% 23%;
+    --muted-foreground: 227 17% 48%;
+    /* overlay0 #6c7086 */
+
+    --accent: 238 35% 77%;
+    /* lavender for accents */
+    --accent-foreground: 240 21% 15%;
+
+    --destructive: 343 81% 75%;
+    /* red #f38ba8 */
+    --destructive-foreground: 240 21% 15%;
+
+    --border: 237 16% 23%;
+    --input: 237 16% 23%;
+    --ring: 238 35% 77%;
+
+    --radius: 0.75rem;
+
+    /* Enhanced design tokens */
+    --gradient-primary: linear-gradient(135deg, #b4befe 0%, #cba6f7 100%);
+    --gradient-accent: linear-gradient(135deg, #74c7ec 0%, #89dceb 100%);
+    --gradient-mesh: radial-gradient(at 0% 0%, rgba(180, 190, 254, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(203, 166, 247, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(116, 199, 236, 0.15) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(137, 220, 235, 0.15) 0px, transparent 50%);
+    --shadow-glow: 0 0 40px rgba(180, 190, 254, 0.4), 0 0 80px rgba(180, 190, 254, 0.2);
+    --shadow-elevated: 0 20px 60px -15px rgba(180, 190, 254, 0.4), 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ctp-base text-ctp-text font-sans antialiased;
+    background-image: var(--gradient-mesh);
+    perspective: 1000px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-bold;
+  }
+
+  h1 {
+    @apply text-transparent bg-clip-text;
+    background-image: var(--gradient-primary);
+  }
+}
+
+@layer utilities {
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes scroll-fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) scale(0.9);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes glow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(180, 190, 254, 0.3);
+    }
+
+    50% {
+      box-shadow: 0 0 40px rgba(180, 190, 254, 0.5);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  /* Gradient animation for depth */
+  @keyframes gradient-shift {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Light reflection effect */
+  @keyframes light-sweep {
+    0% {
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+
+    100% {
+      transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+  }
+
+  /* Pulse glow for interactive elements */
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Slow, smooth pulse for background elements */
+  @keyframes pulse-slow {
+
+    0%,
+    100% {
+      opacity: 0.7;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+  /* Tooltip fade-in animation */
+  @keyframes tooltipFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .animate-float,
+    .animate-float-delayed,
+    .animate-glow,
+    .animate-shimmer,
+    .animate-pulse-slow,
+    .scroll-fade-in {
+      animation: none;
+    }
+  }
+
+  .scroll-fade-in {
+    animation: scroll-fade-in 1.2s ease-out forwards;
+    animation-delay: 0s;
+  }
+
+  .glass-panel {
+    @apply bg-ctp-surface0/60 backdrop-blur-xl border border-ctp-surface1/60;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-panel-3d {
+    @apply bg-ctp-surface0/60 backdrop-blur-xl border border-ctp-surface1/60;
+    box-shadow:
+      0 12px 48px 0 rgba(0, 0, 0, 0.5),
+      0 4px 16px 0 rgba(180, 190, 254, 0.2),
+      inset 0 2px 0 0 rgba(255, 255, 255, 0.1),
+      inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text;
+    background-image: var(--gradient-primary);
+  }
+
+  /* Interactive depth effect */
+  .depth-hover {
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .depth-hover:hover {
+    transform: translateY(-12px) scale(1.03) translateZ(20px);
+  }
+
+  /* Animated gradient background */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 24s ease infinite;
+  }
+
+  /* Light reflection overlay */
+  .light-reflection::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.8s;
+  }
+
+  .light-reflection:hover::after {
+    animation: light-sweep 3.5s ease;
+    opacity: 1;
+  }
+
+  /* Magnetic cursor effect helper */
+  .magnetic {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Form validation styling */
+  input:invalid:not(:focus):not(:placeholder-shown),
+  textarea:invalid:not(:focus):not(:placeholder-shown) {
+    @apply border-ctp-red/50 bg-ctp-red/5;
+  }
+
+  input:invalid:focus,
+  textarea:invalid:focus {
+    @apply ring-ctp-red border-ctp-red;
+  }
+
+  input:valid:not(:placeholder-shown),
+  textarea:valid:not(:placeholder-shown) {
+    @apply border-ctp-green/50;
+  }
+}
