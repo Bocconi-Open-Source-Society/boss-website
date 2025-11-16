@@ -67,14 +67,27 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-6 text-center relative z-10">
+        {/* 1. Title */}
         <h1 className="text-6xl md:text-8xl font-display font-bold mb-6 leading-tight scroll-fade-in" style={{ animationDelay: '0.1s' }}>
           Bocconi Open Source Society
         </h1>
-        
-        <p className="text-xl md:text-2xl text-ctp-subtext0 max-w-3xl mx-auto mb-12 leading-relaxed scroll-fade-in" style={{ animationDelay: '0.3s' }}>
-          Students building, learning, and sharing open source at Bocconi.
-          <br />
-          <span className="text-ctp-text font-medium">Join us in shaping the future of technology.</span>
+
+        {/* 2. Short Description */}
+        <p className="text-xl md:text-2xl text-ctp-subtext0 w-full mx-auto mb-4 leading-relaxed scroll-fade-in" style={{ animationDelay: '0.3s' }}>
+          Students building, learning, and sharing open source at Bocconi University.
+        </p>
+
+        {/* 3. Mission (lower level) */}
+        <p className="text-base md:text-lg text-ctp-subtext1 leading-relaxed scroll-fade-in w-full mx-auto mb-8" style={{ animationDelay: '0.36s' }}>
+          Our mission is to achieve{' '}
+          <span className="font-bold bg-gradient-to-r from-ctp-lavender to-ctp-mauve bg-clip-text text-transparent">
+            n PRs
+          </span>{' '}
+          merged into open-source projects for the{' '}
+          <span className="font-bold bg-gradient-to-r from-ctp-lavender to-ctp-mauve bg-clip-text text-transparent">
+            n-th semester
+          </span>{' '}
+          since our inception.
         </p>
 
         <button
