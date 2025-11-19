@@ -5,13 +5,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-ctp-base">
       <main>
-        <div className="hidden md:block">
-          <Hero />
-        </div>
+        <Hero />
       </main>
-      <div className="hidden md:block">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };
