@@ -10,7 +10,7 @@ interface ParticleConfig {
 }
 
 const config: ParticleConfig = {
-    particleColor: 'rgba(180, 190, 254, 0.7)', // Catppuccin Lavender
+    particleColor: 'rgba(180, 190, 254, 0.7)',
     lineColor: 'rgba(180, 190, 254, 0.3)',
     particleAmount: 40, // Initial amount, density adjusted by screen size
     defaultSpeed: 0.5,
