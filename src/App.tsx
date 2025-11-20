@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Contact from "@/components/Contact";
+import ParticleBackground from "@/components/ui/ParticleBackground";
 
 const queryClient = new QueryClient();
 
@@ -14,6 +15,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ParticleBackground />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

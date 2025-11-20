@@ -224,12 +224,12 @@
   }
 
   .glass-panel {
-    @apply bg-ctp-surface0/60 backdrop-blur-xl border border-ctp-surface1/60;
+    @apply bg-ctp-surface0/80 backdrop-blur-3xl border border-ctp-surface1/40;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   }
 
   .glass-panel-3d {
-    @apply bg-ctp-surface0/60 backdrop-blur-xl border border-ctp-surface1/60;
+    @apply bg-ctp-surface0/80 backdrop-blur-3xl border border-ctp-surface1/40;
     box-shadow:
       0 12px 48px 0 rgba(0, 0, 0, 0.5),
       0 4px 16px 0 rgba(180, 190, 254, 0.2),
