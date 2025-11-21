@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": true
+  },
+  "include": ["src/**/*", "vite-env.d.ts", "index.html"],
+  "exclude": ["node_modules", "dist"]
+}
