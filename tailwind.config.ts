@@ -57,34 +57,34 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Catppuccin Mocha colors
+        // Terminal Green color palette
         ctp: {
-          base: "#1e1e2e",
-          mantle: "#181825",
-          crust: "#11111b",
-          surface0: "#313244",
-          surface1: "#45475a",
-          surface2: "#585b70",
-          overlay0: "#6c7086",
-          overlay1: "#7f849c",
-          overlay2: "#9399b2",
-          subtext0: "#a6adc8",
-          subtext1: "#bac2de",
-          text: "#cdd6f4",
-          lavender: "#b4befe",
-          blue: "#89b4fa",
-          sapphire: "#74c7ec",
-          sky: "#89dceb",
-          teal: "#94e2d5",
-          green: "#a6e3a1",
-          yellow: "#f9e2af",
-          peach: "#fab387",
-          maroon: "#eba0ac",
-          red: "#f38ba8",
-          mauve: "#cba6f7",
-          pink: "#f5c2e7",
-          flamingo: "#f2cdcd",
-          rosewater: "#f5e0dc",
+          base: "#0d1408",        // deep black-green
+          mantle: "#0a0f06",      // darker black-green
+          crust: "#070a04",       // darkest black-green
+          surface0: "#1a2617",    // dark green surface
+          surface1: "#243321",    // medium dark green
+          surface2: "#2e402b",    // medium green
+          overlay0: "#5c7a5f",    // dimmed green
+          overlay1: "#6d8a70",    // lighter dimmed green
+          overlay2: "#7e9a81",    // light dimmed green
+          subtext0: "#8faa92",    // muted green text
+          subtext1: "#a0baa3",    // lighter muted green
+          text: "#7fda89",        // terminal green text
+          lavender: "#4dff4d",    // bright terminal green (primary)
+          blue: "#3dcc7a",        // seafoam green
+          sapphire: "#5ce89e",    // light seafoam
+          sky: "#6ef5ab",         // bright seafoam
+          teal: "#4dff4d",        // bright green
+          green: "#4dff4d",       // bright terminal green
+          yellow: "#7fda89",      // medium green (for warnings)
+          peach: "#8fea99",       // light green
+          maroon: "#d63c3c",      // red for errors
+          red: "#d63c3c",         // red for errors
+          mauve: "#3dcc7a",       // seafoam accent
+          pink: "#5ce89e",        // light seafoam
+          flamingo: "#6ef5ab",    // bright seafoam
+          rosewater: "#7fda89",   // terminal green
         },
       },
       borderRadius: {
