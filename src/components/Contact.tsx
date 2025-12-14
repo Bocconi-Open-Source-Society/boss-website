@@ -3,6 +3,7 @@ import { Mail, Phone, MessageSquare, CheckCircle, Send, AlertCircle } from "luci
 import { useState } from "react";
 import EmailValidationTooltip from "./EmailValidationTooltip";
 import Footer from "./Footer";
+import Header from "./Header";
 
 const Contact = () => {
   const [state, handleSubmit] = useForm("mgvrwvvl");
@@ -68,9 +69,8 @@ const Contact = () => {
   if (state.succeeded) {
     return (
       <>
+        <Header />
         <section id="contact" className="min-h-screen py-4 md:py-32 px-4 md:px-6 flex items-center relative">
-          {/* Backlink */}
-          <a href="/" className="absolute top-6 left-6 z-20 font-display font-bold text-2xl text-ctp-lavender hover:text-ctp-mauve transition-colors duration-300">BOSS</a>
           <div className="container mx-auto max-w-2xl text-center">
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-ctp-green/20 to-ctp-teal/20 rounded-3xl blur-2xl animate-pulse-glow" />
@@ -95,9 +95,8 @@ const Contact = () => {
 
   return (
     <>
+      <Header />
       <section id="contact" className="min-h-screen py-4 md:py-32 px-4 md:px-6 flex items-center relative">
-        {/* Backlink */}
-        <a href="/" className="absolute top-6 left-6 z-20 font-display font-bold text-2xl text-ctp-lavender hover:text-ctp-mauve transition-colors duration-300">BOSS</a>
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-6 md:mb-16 scroll-fade-in">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold gradient-text mb-3 md:mb-6">

@@ -4,57 +4,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Enhanced Catppuccin Mocha Design System */
+/* Terminal Green Design System */
 @layer base {
   :root {
-    /* Using Catppuccin Mocha colors in HSL */
-    --background: 240 21% 15%;
-    /* base #1e1e2e */
-    --foreground: 226 64% 88%;
-    /* text #cdd6f4 */
+    /* Using classic terminal green colors in HSL */
+    --background: 120 15% 8%;
+    /* deep black-green #0d1408 */
+    --foreground: 120 60% 75%;
+    /* terminal green text #7fda89 */
 
-    --card: 237 16% 23%;
-    /* surface0 #313244 */
-    --card-foreground: 226 64% 88%;
+    --card: 120 20% 12%;
+    /* surface0 #1a2617 */
+    --card-foreground: 120 60% 75%;
 
-    --popover: 237 16% 23%;
-    --popover-foreground: 226 64% 88%;
+    --popover: 120 20% 12%;
+    --popover-foreground: 120 60% 75%;
 
-    --primary: 238 35% 77%;
-    /* lavender #b4befe */
-    --primary-foreground: 240 21% 15%;
+    --primary: 120 65% 65%;
+    /* bright terminal green #33ff33 -> softer #4dff4d */
+    --primary-foreground: 120 15% 8%;
 
-    --secondary: 199 76% 69%;
-    /* sapphire #74c7ec */
-    --secondary-foreground: 240 21% 15%;
+    --secondary: 140 55% 55%;
+    /* seafoam green accent #3dcc7a */
+    --secondary-foreground: 120 15% 8%;
 
-    --muted: 237 16% 23%;
-    --muted-foreground: 227 17% 48%;
-    /* overlay0 #6c7086 */
+    --muted: 120 20% 12%;
+    --muted-foreground: 120 20% 45%;
+    /* dimmed green #5c7a5f */
 
-    --accent: 238 35% 77%;
-    /* lavender for accents */
-    --accent-foreground: 240 21% 15%;
+    --accent: 120 65% 65%;
+    /* bright green for accents */
+    --accent-foreground: 120 15% 8%;
 
-    --destructive: 343 81% 75%;
-    /* red #f38ba8 */
-    --destructive-foreground: 240 21% 15%;
+    --destructive: 0 70% 60%;
+    /* red for errors #d63c3c */
+    --destructive-foreground: 120 15% 8%;
 
-    --border: 237 16% 23%;
-    --input: 237 16% 23%;
-    --ring: 238 35% 77%;
+    --border: 120 25% 18%;
+    --input: 120 25% 18%;
+    --ring: 120 65% 65%;
 
     --radius: 0.75rem;
 
     /* Enhanced design tokens */
-    --gradient-primary: linear-gradient(135deg, #b4befe 0%, #cba6f7 100%);
-    --gradient-accent: linear-gradient(135deg, #74c7ec 0%, #89dceb 100%);
-    --gradient-mesh: radial-gradient(at 0% 0%, rgba(180, 190, 254, 0.15) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(203, 166, 247, 0.15) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(116, 199, 236, 0.15) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, rgba(137, 220, 235, 0.15) 0px, transparent 50%);
-    --shadow-glow: 0 0 40px rgba(180, 190, 254, 0.4), 0 0 80px rgba(180, 190, 254, 0.2);
-    --shadow-elevated: 0 20px 60px -15px rgba(180, 190, 254, 0.4), 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+    --gradient-primary: linear-gradient(135deg, #4dff4d 0%, #3dcc7a 100%);
+    --gradient-accent: linear-gradient(135deg, #3dcc7a 0%, #5ce89e 100%);
+    --gradient-mesh: radial-gradient(at 0% 0%, rgba(77, 255, 77, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(61, 204, 122, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(92, 232, 158, 0.15) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(127, 218, 137, 0.15) 0px, transparent 50%);
+    --shadow-glow: 0 0 40px rgba(77, 255, 77, 0.4), 0 0 80px rgba(77, 255, 77, 0.2);
+    --shadow-elevated: 0 20px 60px -15px rgba(77, 255, 77, 0.4), 0 10px 30px -10px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -68,8 +68,7 @@
   }
 
   body {
-    @apply bg-ctp-base text-ctp-text font-sans antialiased;
-    background-image: var(--gradient-mesh);
+    @apply bg-black text-ctp-text font-sans antialiased;
     perspective: 1000px;
   }
 
@@ -117,11 +116,11 @@
 
     0%,
     100% {
-      box-shadow: 0 0 20px rgba(180, 190, 254, 0.3);
+      box-shadow: 0 0 20px rgba(77, 255, 77, 0.3);
     }
 
     50% {
-      box-shadow: 0 0 40px rgba(180, 190, 254, 0.5);
+      box-shadow: 0 0 40px rgba(77, 255, 77, 0.5);
     }
   }
 
@@ -232,7 +231,7 @@
     @apply bg-ctp-surface0/60 backdrop-blur-xl border border-ctp-surface1/60;
     box-shadow:
       0 12px 48px 0 rgba(0, 0, 0, 0.5),
-      0 4px 16px 0 rgba(180, 190, 254, 0.2),
+      0 4px 16px 0 rgba(77, 255, 77, 0.2),
       inset 0 2px 0 0 rgba(255, 255, 255, 0.1),
       inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
     transform-style: preserve-3d;
@@ -300,5 +299,9 @@
   input:valid:not(:placeholder-shown),
   textarea:valid:not(:placeholder-shown) {
     @apply border-ctp-green/50;
+  }
+
+  .logo-green {
+    filter: brightness(0) saturate(100%) invert(83%) sepia(49%) saturate(1029%) hue-rotate(67deg) brightness(103%) contrast(106%);
   }
 }
