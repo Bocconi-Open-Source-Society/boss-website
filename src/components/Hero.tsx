@@ -1,6 +1,7 @@
 import { Github, Users, Code2 } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import yaml from "js-yaml";
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -47,11 +48,25 @@ const Hero = () => {
     const card = e.currentTarget;
     card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
   };
-  const stats = [
-    { icon: Users, label: "Active Members", value: "10" },
-    { icon: Code2, label: "Projects", value: "2" },
-    { icon: Github, label: "Contributions", value: "0" },
-  ];
+
+  const [stats, setStats] = useState<any[]>([]);
+  // Map icon name string to actual component
+  const iconMap: Record<string, any> = { Users, Code2, Github };
+
+  useEffect(() => {
+    fetch("/stats.yaml")
+      .then((res) => res.text())
+      .then((text) => {
+        const parsed = yaml.load(text) as any[];
+        setStats(
+          parsed.map((item) => ({
+            ...item,
+            icon: iconMap[item.icon] || Users,
+          }))
+        );
+      });
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <section
@@ -59,12 +74,6 @@ const Hero = () => {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
-      {/* Animated background elements with parallax */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="parallax-slow absolute top-1/4 -left-20 w-96 h-96 bg-ctp-lavender/10 rounded-full blur-3xl animate-pulse-slow transition-transform duration-1000 ease-out" />
-        <div className="parallax-fast absolute bottom-1/4 -right-20 w-96 h-96 bg-ctp-sapphire/10 rounded-full blur-3xl animate-pulse-slow delay-1000 transition-transform duration-1000 ease-out" />
-        <div className="parallax-slow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-ctp-mauve/5 rounded-full blur-3xl transition-transform duration-1000 ease-out" />
-      </div>
       
       <div className="container mx-auto px-6 text-center relative z-10">
         {/* 1. Title */}
@@ -100,24 +109,27 @@ const Hero = () => {
 
         {/* Stats with 3D tilt */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="relative group scroll-fade-in"
-              style={{ animationDelay: `${0.5 + index * 0.1}s` }}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-ctp-lavender/20 to-ctp-mauve/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="relative glass-panel-3d p-8 rounded-3xl hover:border-ctp-lavender/50 transition-all duration-500 shadow-elevated hover:shadow-glow light-reflection overflow-hidden">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-ctp-lavender/30 to-ctp-mauve/30 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg">
-                  <stat.icon className="w-7 h-7 text-ctp-lavender" />
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={index}
+                className="relative group scroll-fade-in"
+                style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-ctp-lavender/20 to-ctp-mauve/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative glass-panel-3d p-8 rounded-3xl hover:border-ctp-lavender/50 transition-all duration-500 shadow-elevated hover:shadow-glow light-reflection overflow-hidden">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-ctp-lavender/30 to-ctp-mauve/30 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg">
+                    <Icon className="w-7 h-7 text-ctp-lavender" />
+                  </div>
+                  <div className="text-4xl font-bold gradient-text mb-2">{stat.value}</div>
+                  <div className="text-sm text-ctp-subtext0 font-medium">{stat.label}</div>
                 </div>
-                <div className="text-4xl font-bold gradient-text mb-2">{stat.value}</div>
-                <div className="text-sm text-ctp-subtext0 font-medium">{stat.label}</div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

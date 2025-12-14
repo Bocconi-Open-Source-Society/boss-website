@@ -68,8 +68,7 @@
   }
 
   body {
-    @apply bg-ctp-base text-ctp-text font-sans antialiased;
-    background-image: var(--gradient-mesh);
+    @apply bg-black text-ctp-text font-sans antialiased;
     perspective: 1000px;
   }
 
@@ -300,5 +299,9 @@
   input:valid:not(:placeholder-shown),
   textarea:valid:not(:placeholder-shown) {
     @apply border-ctp-green/50;
+  }
+
+  .logo-green {
+    filter: brightness(0) saturate(100%) invert(83%) sepia(49%) saturate(1029%) hue-rotate(67deg) brightness(103%) contrast(106%);
   }
 }

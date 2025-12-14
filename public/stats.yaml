@@ -1,0 +1,9 @@
+- icon: Users
+  label: Active Members
+  value: 5
+- icon: Code2
+  label: Projects
+  value: 2
+- icon: Github
+  label: Contributions
+  value: 1
