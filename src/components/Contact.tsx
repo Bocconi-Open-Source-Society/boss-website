@@ -32,7 +32,7 @@ const Contact = () => {
   // Custom validation functions
   const validateEmail = (value: string) => {
     if (!value) return "Email is required";
-    const pattern = /^[a-zA-Z]+\.[a-zA-Z]+@studbocconi\.it$/;
+    const pattern = /^[a-zA-Z]+\.[a-zA-Z]+[1-9]?@studbocconi\.it$/;
     if (!pattern.test(value)) {
       return "Must be a valid Bocconi student email (name.surname@studbocconi.it)";
     }
